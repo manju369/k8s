@@ -1,1 +1,17 @@
+ kubectl  apply -f storage-class.yaml 
+ kubectl  apply -f jupyter-pv-pvc.yaml 
+ kubectl  apply -f jupyter-service.yaml
+ kubectl  apply -f jupyter-sts.yaml 
+ 
+ 
+Initcontainer logs : 
+kubectl  logs  jupyter-0 -c change-ownership-container
 
+Main container logs:
+kubectl  logs  jupyter-0 
+
+
+Port forwarding 
+kubectl port-forward  svc/jupyter-headless 8888:8888
+
+Open Jupyter in browser - http://localhost:8888
